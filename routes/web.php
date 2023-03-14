@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HalamanController;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [HalamanController::class, 'home']);
+Route::get('/loker', [HalamanController::class, 'loker']);
+Route::get('/berita', [HalamanController::class, 'berita']);
+Route::get('/login', [SessionController::class, 'login']);
+Route::post('/login/auth', [SessionController::class, 'auth']);
